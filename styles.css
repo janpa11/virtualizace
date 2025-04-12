@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;  /* Defaultní pozadí */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;  /* Aby animace pozadí fungovala */
+    overflow: hidden;    /* Zamezí skrolování při animaci */
+}
+
+/* Animovaný gradient - běhání barvy v pozadí */
+.animated-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff6b6b, #f7d794, #1abc9c, #3498db, #9b59b6, #f39c12, #2ecc71);
+    background-size: 600% 600%;  /* Zvětšíme velikost gradientu pro plynulejší animaci */
+    animation: gradientMove 20s ease infinite;  /* Zpomalení animace na 20 sekund */
+    z-index: -1; /* Ujistíme se, že pozadí bude pod všemi ostatními prvky */
+}
+
+/* Klíčové snímky pro animaci gradientu */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* Styl pro citátový box */
+.quote-box {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quote-box:hover {
+    background-color: #f7f7f7;
+}
+
+#quote {
+    font-size: 1.2em;
+    color: #333;
+    font-style: italic;
+}
+
+/* Styl pro galerii s obrázky */
+.gallery {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+/* Posun nahoru pro 5. obrázek přibližně o 3 cm */
+.shifted-up-3cm {
+    object-position: 50% 65%; /* Vertikální posun cca o 3 cm nahoru */
+}
+
+/* Posun nahoru pro 8. obrázek přibližně o 2 cm */
+.shifted-up-2cm {
+    object-position: 50% 75%; /* Vertikální posun cca o 2 cm nahoru */
+}
+/* Posun nahoru pro 5. obrázek přibližně o 3 cm */
+.shifted-up-1cm {
+    object-position: 50% 65%; /* Vertikální posun cca o 3 cm nahoru */
+}
+
+.image-container:hover {
+    transform: scale(1.1);
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+
+
+
+/* Základní styl pro tělo stránky */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: auto; /* Umožní horizontální scroll */
+    overflow-y: auto; /* Umožní vertikální scroll */
+
+}
+
+/* Základní styl pro tělo stránky */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Skryje horizontální posuvník */
+}
+
+/* Responzivní úpravy pro mobilní zařízení */
+@media (max-width: 768px) {
+    /* Nastavení galerie */
+    .gallery {
+        display: flex;
+        flex-wrap: wrap; /* Obrázky mohou být více na řádcích, pokud nezapadnou */
+        gap: 20px; /* Mezera mezi obrázky */
+        justify-content: center; /* Zarovná obrázky na střed */
+    }
+
+    /* Roztažení karet a obrázků */
+    .image-container {
+        width: 60%;  /* Karty a obrázky budou zabírat 60% šířky obrazovky */
+        height: 300px; /* Můžeme upravit výšku podle potřeby */
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Jemný stín pro lepší vzhled */
+        position: relative;
+    }
+
+    .image-container img {
+        width: 100%;  /* Obrázky budou zabírat 100% šířky karty */
+        height: 100%; /* Obrázky budou zabírat 100% výšky karty */
+        object-fit: cover; /* Udržuje kvalitu obrázků a vyplní celou kartu */
+    }
+}
+
+/* Pro ještě menší mobilní zařízení (max-width: 480px) */
+@media (max-width: 480px) {
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .image-container {
+        width: 70%;  /* Karty a obrázky budou zabírat 70% šířky obrazovky */
+        height: 250px; /* Výška se může lehce snížit pro menší obrazovky */
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Zajistí, že obrázky vyplní celou kartu */
+    }
+}
+
+
+
+
+
+
+
+
+
+
